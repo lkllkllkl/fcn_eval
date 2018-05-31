@@ -1,0 +1,6 @@
+fcn_train.record
+fcn_val.record
+vgg16.ckpt
+VOCdevkit
+.vscode
+__pycache__
