@@ -16,8 +16,8 @@ def main():
         labels.append('%s/SegmentationClass/%s.png' % (root, img))
 
     model = FcnModel('/content/fcn/output/train')
-    mious = 505.5773122012615
-    for i in range(939, 1449):
+    mious = 732.8291192352772
+    for i in range(1364, 1449):
         miou = model.eval(datas[i], labels[i])
         mious += miou
         print('{0}/{1}, miou: {2}'.format(i, len(labels), miou)) 
