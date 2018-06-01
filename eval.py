@@ -14,17 +14,15 @@ def main():
     for img in images:
         datas.append('%s/JPEGImages/%s.jpg' % (root, img))
         labels.append('%s/SegmentationClass/%s.png' % (root, img))
-    pairs = zip(datas, labels)
-    
+
     model = FcnModel('/content/fcn/output/train')
-    count = 0
-    mious = 0
-    for (img, lable) in pairs:
-        miou = model.eval(img, lable)
+    mious = 308.32368341088295
+    for i in range(583, 1449):
+        miou = model.eval(datas[i], labels[i])
         mious += miou
-        count += 1
-        print('{0}/{1}, miou: {2}'.format(count, len(labels), miou)) 
+        print('{0}/{1}, miou: {2}'.format(i, len(labels), miou)) 
         print(mious)
+  
     print(mious / len(labels))
 
 
